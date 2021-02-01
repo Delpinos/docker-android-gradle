@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  docker-android-gradle:
+    image: delpinos/docker-android-gradle
+    container_name: docker-android-gradle
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - external-net
+    restart: always
+    privileged: true
+    tty: true
+
+networks: 
+    external-net:
+      driver: bridge
